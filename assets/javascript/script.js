@@ -28,14 +28,16 @@ function grabGifs(){
         var rating = results[i].rating;
         var p = $("<p>").text("rated " + rating);
 		var foodImage = $("<img>");
-        foodImage.attr("src", results[i].images.fixed_height_still.url);
-        foodImage.attr("data-animate", results[i].images.fixed_height.url);
-        foodImage.attr("data-still", results[i].images.fixed_height_still.url);
+        foodImage.attr("src", results[i].images.fixed_width_still.url);
+        foodImage.attr("data-animate", results[i].images.fixed_width.url);
+        foodImage.attr("data-still", results[i].images.fixed_width_still.url);
         foodImage.attr("data-state", "still");
         foodImage.attr("class", "gif-animate")
         gifDiv.append(p);
         gifDiv.append(foodImage);
         $("#food-gifs").prepend(gifDiv);
+        $(gifDiv).attr("class", "col-md-3");
+
       
     };
 
@@ -50,6 +52,7 @@ $.each(foodButtons, function(index, value) {
 		$("#gif-buttons").append(foodButton.text(value));
 		$(foodButton).attr("class", "food-button btn btn-info");
 		$(foodButton).attr("data-food", this);
+		$("#food-submit").attr("class", "submit-button btn btn-info");
 
 	});
 
@@ -69,7 +72,7 @@ $("#food-submit").on("click", function() {
 		$(foodButton).attr("data-food", foodInput);
 		$("#food-input").val("");
 		$(".food-button").on("click", grabGifs)
-
+		$(foodButton).attr("class", "food-button btn btn-info");
 
 	});
 
@@ -89,5 +92,6 @@ $(document).on("click", ".gif-animate", function() {
         $(this).attr("data-state", "still");
       }
     });
+
 
 });	

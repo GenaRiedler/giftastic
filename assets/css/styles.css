@@ -1,11 +1,17 @@
-.grid-item {
-  float: left;
-  width: 80px;
-  height: 60px;
-  border: 2px solid hsla(0, 0%, 0%, 0.5);
+body {
+	background-image: url(../images/snack_pattern.jpg);
+	font-family: 'Roboto Slab', serif;
 }
 
-.grid-sizer,
-.grid-item { width: 20%; }
-/* 2 columns */
-.grid-item--width2 { width: 40%; }
+h1 {
+	font-family: 'Pacifico', cursive;
+	margin-bottom: 40px;
+}
+
+.jumbotron {
+	background: none;
+}
+
+.food-button {
+	margin: 5px;
+}
